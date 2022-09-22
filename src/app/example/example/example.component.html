@@ -1,0 +1,106 @@
+<mat-card>
+  <mat-card-title>Ingrese la información</mat-card-title>
+  <form class="example-form" [formGroup]="exampleForm"  (ngSubmit)="onSubmit()"> 
+      <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput formControlName="firstname">
+          <mat-error *ngIf="exampleForm.controls['firstname'].errors && !exampleForm.controls['firstname'].hasError('required')">
+            Verifique el nombre
+          </mat-error>
+          <mat-error *ngIf="exampleForm.controls['firstname'].hasError('required')">
+            Nombre es <strong>Obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Apellido</mat-label>
+          <input type="text" matInput formControlName="lastname">
+          <mat-error *ngIf="exampleForm.controls['lastname'].errors && !exampleForm.controls['lastname'].hasError('required')">
+            Verifique el apellido
+          </mat-error>
+          <mat-error *ngIf="exampleForm.controls['lastname'].hasError('required')">
+            Apellido es <strong>Obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Documento</mat-label>
+          <input type="text" matInput formControlName="document_number">
+          <mat-error *ngIf="exampleForm.controls['document_number'].errors && !exampleForm.controls['document_number'].hasError('required')">
+            Verifique el documento
+          </mat-error>
+          <mat-error *ngIf="exampleForm.controls['document_number'].hasError('required')">
+            Documento es <strong>Obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Email</mat-label>
+          <input type="email" matInput formControlName="email" placeholder="Ex.pat@example.com">
+          <mat-error *ngIf="exampleForm.controls['email'].errors && !exampleForm.controls['email'].hasError('required')">
+            Verifique el correo
+          </mat-error>
+          <mat-error *ngIf="exampleForm.controls['email'].hasError('required')">
+            Email es <strong>Obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+    
+      <p>
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Genero</mat-label>
+          <mat-select formControlName="gender">
+            <mat-option value="Masculino">Masculino</mat-option>
+            <mat-option value="Femenino">Femenino</mat-option>
+          </mat-select>
+          <mat-error *ngIf="exampleForm.controls['gender'].errors && !exampleForm.controls['gender'].hasError('required')">
+            Verifique el genero
+          </mat-error>
+          <mat-error *ngIf="exampleForm.controls['gender'].hasError('required')">
+            Genero es <strong>Obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+    
+      <p *ngIf="exampleForm.value['gender']=='Masculino'">
+        <mat-form-field class="example-full-width" appearance="fill">
+          <mat-label>Edad</mat-label>
+          <input type="text" matInput formControlName="age">
+          <mat-error *ngIf="exampleForm.controls['age'].errors && !exampleForm.controls['age'].hasError('required')">
+            Verifique la edad
+          </mat-error>
+          <mat-error *ngIf="exampleForm.controls['age'].hasError('required')">
+            Edad es <strong>Obligatorio</strong>
+          </mat-error>
+        </mat-form-field>
+      </p>
+    
+      <p>
+          <mat-label>Pasatiempo: </mat-label>
+          <mat-radio-group formControlName="hobby">
+            <mat-radio-button value="Leer">Leer</mat-radio-button>
+            <mat-radio-button value="Caminar">Caminar</mat-radio-button>
+            <mat-radio-button value="Dormir">Dormir</mat-radio-button>
+          </mat-radio-group>
+          <mat-error *ngIf="exampleForm.controls['hobby'].errors && !exampleForm.controls['hobby'].hasError('required')">
+            Verifique el pasatiempo
+          </mat-error>
+          <mat-error *ngIf="exampleForm.controls['hobby'].hasError('required')">
+            Pasatiempo es <strong>Obligatorio</strong>
+          </mat-error>
+      </p>
+    
+    
+      <p>
+        <button mat-flat-button type="submit" [disabled]="!exampleForm.valid">Guardar</button>
+      </p>
+    
+  </form>
+</mat-card>
